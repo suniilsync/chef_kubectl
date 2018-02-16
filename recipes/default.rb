@@ -45,7 +45,7 @@ if File.exist?(cmd)
 		level :info
 	end
 
-	stdout, status = Open3.capture2(cmd, 'version')
+	stdout, status = Open3.capture2(cmd, 'version', '--client')
 	raise "Failed to execute '#{cmd} version'" unless status.success?
 
 	log "reported version: #{stdout.strip}" do
